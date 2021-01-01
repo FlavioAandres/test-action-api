@@ -1,0 +1,29 @@
+name: Build and Publish each push to master
+on:
+  push:
+    branches:
+      - integration
+    paths:
+      - "api/*"
+jobs:
+  test-sync:
+    runs-on: ubuntu-latest
+    env: 
+      LINES: 1000
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.Js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: ⚙ Install Dependencies
+        run: cd ./.github/actions/test-sync/rps-performance/ && npm install 
+      - name: 🛠 Test Latest Changes
+        run: node ./.github/actions/test-sync/rps-performance/index.js
+      - name: 📄 PREPARE RESULTS
+        run: node ./.github/actions/test-sync/rps-performance/summary.js > results.txt
+      - name: ⬆ UPLOAD RESULTS
+        run: response=$(curl -F 'file=@./results.txt' https://test.storage.cebroker.com/CEBroker) && echo https://test.storage.cebroker.com/CEBroker/ sed 's/"/g' $response

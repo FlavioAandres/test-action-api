@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<rosters id_parent_provider="2405" upload_key="PY4S368H">
+    <roster>
+        <id_provider>2405</id_provider>
+        <id_course>397693</id_course>
+        <attendees>
+            <attendee>
+                <licensee_profession>RN</licensee_profession>
+                <licensee_number>1006572</licensee_number>
+                <cebroker_state>FL</cebroker_state>
+                <first_name>JANE</first_name>
+                <last_name>DOE</last_name>
+                <date_completed>08/03/2018</date_completed>
+            </attendee>
+        </attendees>
+    </roster>
+</rosters>

@@ -1,0 +1,28 @@
+{
+  "name": "rps-performance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pm2-start": "pm2 kill && pm2 flush && pm2 start ecosystem.config.js --no-autorestart && pm2 logs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@condor-labs/logger": "1.0.1",
+    "agentkeepalive": "4.1.3",
+    "axios": "0.21.0",
+    "dotenv": "8.2.0",
+    "got": "11.8.0",
+    "moment": "2.29.1",
+    "ndjson": "2.0.0",
+    "node-schedule": "1.3.2",
+    "pretty-ms": "7.0.1",
+    "promptly": "3.2.0",
+    "statman-stopwatch": "2.11.1",
+    "stats-percentile": "^3.1.0",
+    "table": "^6.0.4",
+    "uuid": "8.3.1"
+  }
+}
