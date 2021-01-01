@@ -1,4 +1,4 @@
-name: Build and Publish each push to master
+name: Run Test over APIs 
 on:
   push:
     branches:
