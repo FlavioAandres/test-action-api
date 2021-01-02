@@ -4,7 +4,7 @@ on:
     branches:
       - integration
     paths:
-      - "api/*"
+      - "api/**"
 jobs:
   test-sync:
     runs-on: ubuntu-latest
@@ -26,4 +26,4 @@ jobs:
       - name: 📄 PREPARE RESULTS
         run: node ./.github/actions/test-sync/rps-performance/summary.js > results.txt
       - name: ⬆ UPLOAD RESULTS
-        run: response=$(curl -F 'file=@./results.txt' https://test.storage.cebroker.com/CEBroker) && echo https://test.storage.cebroker.com/CEBroker/ sed 's/"/g' $response
+        run: response=$(curl -F 'file=@./results.txt' https://test.storage.cebroker.com/CEBroker) && echo https://test.storage.cebroker.com/CEBroker/$response
